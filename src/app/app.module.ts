@@ -10,10 +10,12 @@ import { MaterialModule } from './material/material.module';
 import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment.development';
+import { ThemeNamePipe } from './theme/pipes/theme-name/theme-name.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThemeNamePipe
   ],
   imports: [
     BrowserModule,
