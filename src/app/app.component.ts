@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AppState } from './store/app.reducer';
+import { Store } from '@ngrx/store';
+import { themeSelector } from './store/selectors/themes.selector';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-material';
+
+  constructor(
+    private store: Store<AppState>
+  ) {
+    this.store.select(themeSelector).subscribe((name) => console.log(name));
+  }
+
 }

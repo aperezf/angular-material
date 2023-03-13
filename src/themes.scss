@@ -68,7 +68,7 @@ $md-lightaccentpalette: (
     )
 );
 
-$light-primary-palette: (
+$md-darkprimarypalette: (
   50 : #fef1ed,
   100 : #fbddd2,
   200 : #f9c6b4,
@@ -101,7 +101,7 @@ $light-primary-palette: (
   )
 );
 
-$light-accent-palette: (
+$md-darkaccentpalette: (
   50 : #e3f4f3,
   100 : #b9e3e0,
   200 : #8bd1cc,
@@ -145,4 +145,15 @@ $light-theme: mat.define-light-theme(
   )
 );
 
-@include mat.all-component-themes($light-theme);
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($md-darkprimarypalette, 500),
+      accent: mat.define-palette($md-darkaccentpalette, A700)
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+@include mat.all-component-themes($dark-theme);
