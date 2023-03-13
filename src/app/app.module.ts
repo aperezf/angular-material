@@ -10,18 +10,18 @@ import { MaterialModule } from './material/material.module';
 import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment.development';
-import { ThemeNamePipe } from './theme/pipes/theme-name/theme-name.pipe';
+import { ThemeModule } from './theme/theme.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThemeNamePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ThemeModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -1,20 +1,16 @@
-<mat-toolbar color="primary">
-  <span>Angular material</span>
-  <span style="flex: 1 1 auto"></span>
-  <mat-button-toggle-group name="theme" [value]="(themeName$ | async)">
-    <mat-button-toggle value="light" (click)="changeTheme('light')">Claro</mat-button-toggle>
-    <mat-button-toggle value="dark" (click)="changeTheme('dark')">Oscuro</mat-button-toggle>
-  </mat-button-toggle-group>
-</mat-toolbar>
-
-<div class="example-label">Muestra</div>
-<section>
-  <div class="example-button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
+<app-navbar></app-navbar>
+<mat-sidenav-container
+  class="example-container"
+  style="height: calc(100% - 64px)"
+>
+  <mat-sidenav #drawer mode="side">
+    <mat-nav-list>
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <section>
+      <button mat-raised-button (click)="drawer.toggle()">Basic</button>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -140,7 +140,9 @@ $light-theme: mat.define-light-theme(
       primary: mat.define-palette($md-lightprimarypalette, 500),
       accent: mat.define-palette($md-lightaccentpalette, A700)
     ),
-    typography: mat.define-typography-config(),
+    typography: mat.define-typography-config(
+      $font-family: 'Nunito'
+    ),
     density: 0
   )
 );

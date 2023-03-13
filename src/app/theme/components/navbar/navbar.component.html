@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Angular material</span>
+  <span style="flex: 1 1 auto"></span>
+  <button mat-icon-button [matMenuTriggerFor]="navbarMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #navbarMenu="matMenu">
+    <button mat-menu-item>Cerrar sesión</button>
+  </mat-menu>
+  <!-- <mat-button-toggle-group name="theme" [value]="(themeName$ | async)">
+      <mat-button-toggle value="light" (click)="changeTheme('light')">Claro</mat-button-toggle>
+      <mat-button-toggle value="dark" (click)="changeTheme('dark')">Oscuro</mat-button-toggle>
+    </mat-button-toggle-group> -->
+</mat-toolbar>

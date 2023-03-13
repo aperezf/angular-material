@@ -8,11 +8,21 @@ import { ThemeSelectorService } from './theme/services/theme-selector/theme-sele
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
   themeName$: Observable<string>;
+  menuItems = [
+    { name: 'Inicio', icon: 'home', route: '/' },
+    {
+      name: 'Nivel 1',
+      icon: 'subdirectory_arrow_right',
+      children: [
+        { name: 'Subnivel 1', route: '/subnivel1' },
+        { name: 'Subnivel 2', route: '/subnivel2' },
+      ],
+    },
+  ];
 
   constructor(
     private store: Store<AppState>,
@@ -25,4 +35,5 @@ export class AppComponent {
     this.themeSelectorService.changeTheme(theme);
   }
 
+  toggleMenu(): void {}
 }
