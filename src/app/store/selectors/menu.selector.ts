@@ -8,3 +8,8 @@ export const menuSelector = createSelector(
   selectMenuState,
     (state: MenuReducer.State) => state.menu
 );
+
+export const menuToggleSelector = createSelector(
+  selectMenuState,
+  (state: MenuReducer.State) => state.opened
+)

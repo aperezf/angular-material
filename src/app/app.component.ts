@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { themeSelector } from './store/selectors/themes.selector';
 import { Observable } from 'rxjs';
 import { ThemeSelectorService } from './theme/services/theme-selector/theme-selector.service';
-import { menuSelector } from './store/selectors/menu.selector';
+import { menuSelector, menuToggleSelector } from './store/selectors/menu.selector';
 import { MenuActions } from './store/actions';
 
 @Component({
@@ -14,7 +14,8 @@ import { MenuActions } from './store/actions';
 })
 export class AppComponent {
   themeName$: Observable<string>;
-  menuList$: Observable<any>;
+
+  opened$: Observable<boolean>;
 
 
 constructor(
@@ -23,7 +24,7 @@ constructor(
 ) {
   this.store.dispatch(MenuActions.loadMenu());
   this.themeName$ = this.store.select(themeSelector);
-  this.menuList$ = this.store.select(menuSelector);
+  this.opened$ = this.store.select(menuToggleSelector);
 }
 
 changeTheme(theme: any): void {

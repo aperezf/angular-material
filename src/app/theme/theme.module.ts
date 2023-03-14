@@ -4,6 +4,7 @@ import { ThemeNamePipe } from './pipes/theme-name/theme-name.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from '../material/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,10 +17,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    SidenavComponent
   ]
 })
 export class ThemeModule { }

@@ -13,3 +13,7 @@ export const loadMenuFailure = createAction(
   '[Menu] loadMenuFailure',
   props<{error: any}>()
 );
+
+export const toggleMenu = createAction(
+  '[Menu] Toggle Menu'
+)

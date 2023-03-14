@@ -14,4 +14,8 @@ export class MenuService {
   getMenu(): Observable<any>{
     return this.http.get('/assets/menu.json');
   }
+
+  toggleMenu() {
+    
+  }
 }
