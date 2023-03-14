@@ -1,17 +1,17 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import * as themeActions from '../actions'
+import { ThemeActions } from '../actions'
 
-export interface ThemeState {
+export interface State {
     name: string;
 }
 
-export const initialState: ThemeState = {
+export const initialState: State = {
     name: 'light'
 }
 
-export const themeReducer = createReducer(
+export const reducer = createReducer(
     initialState,
-    on(themeActions.loadTheme, state => ({ ...state })),
-    on(themeActions.loadThemeSuccess, (state, { theme }) => ({ ...state, name: theme })),
-    on(themeActions.loadThemeFailure, state => ({ ...state })),
+    on(ThemeActions.loadTheme, state => ({ ...state })),
+    on(ThemeActions.loadThemeSuccess, (state, { theme }) => ({ ...state, name: theme })),
+    on(ThemeActions.loadThemeFailure, state => ({ ...state })),
 );

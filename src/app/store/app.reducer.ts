@@ -1,10 +1,12 @@
 import { ActionReducerMap } from '@ngrx/store';
-import * as reducers from './reducers';
+import { ThemeReducer, MenuReducer } from './reducers';
 
 export interface AppState {
-    theme: reducers.ThemeState
+    theme: ThemeReducer.State
+    menu: MenuReducer.State
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
-    theme: reducers.themeReducer
+    theme: ThemeReducer.reducer,
+    menu: MenuReducer.reducer
 }

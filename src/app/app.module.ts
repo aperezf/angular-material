@@ -11,6 +11,8 @@ import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment.development';
 import { ThemeModule } from './theme/theme.module';
+import { EffectsArray } from './store/effects/index';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,13 @@ import { ThemeModule } from './theme/theme.module';
     BrowserAnimationsModule,
     MaterialModule,
     ThemeModule,
+    HttpClientModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot(EffectsArray)
   ],
   providers: [],
   bootstrap: [AppComponent]

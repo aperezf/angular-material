@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { themeSelector } from './store/selectors/themes.selector';
 import { Observable } from 'rxjs';
 import { ThemeSelectorService } from './theme/services/theme-selector/theme-selector.service';
+import { menuSelector } from './store/selectors/menu.selector';
+import { MenuActions } from './store/actions';
 
 @Component({
   selector: 'app-root',
@@ -12,28 +14,21 @@ import { ThemeSelectorService } from './theme/services/theme-selector/theme-sele
 })
 export class AppComponent {
   themeName$: Observable<string>;
-  menuItems = [
-    { name: 'Inicio', icon: 'home', route: '/' },
-    {
-      name: 'Nivel 1',
-      icon: 'subdirectory_arrow_right',
-      children: [
-        { name: 'Subnivel 1', route: '/subnivel1' },
-        { name: 'Subnivel 2', route: '/subnivel2' },
-      ],
-    },
-  ];
+  menuList$: Observable<any>;
 
-  constructor(
-    private store: Store<AppState>,
-    private themeSelectorService: ThemeSelectorService
-  ) {
-    this.themeName$ = this.store.select(themeSelector);
-  }
 
-  changeTheme(theme: any): void {
-    this.themeSelectorService.changeTheme(theme);
-  }
+constructor(
+  private store: Store<AppState>,
+  private themeSelectorService: ThemeSelectorService
+) {
+  this.store.dispatch(MenuActions.loadMenu());
+  this.themeName$ = this.store.select(themeSelector);
+  this.menuList$ = this.store.select(menuSelector);
+}
 
-  toggleMenu(): void {}
+changeTheme(theme: any): void {
+  this.themeSelectorService.changeTheme(theme);
+}
+
+toggleMenu(): void {}
 }
