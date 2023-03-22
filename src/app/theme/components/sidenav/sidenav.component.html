@@ -7,7 +7,7 @@
   <ng-template #childMenu let-menu="menu">
     <mat-expansion-panel [class.mat-elevation-z0]="true">
       <mat-expansion-panel-header>
-        <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>{{menu.text}}
+        <mat-icon>{{menu.icon}}</mat-icon>{{menu.text}}
       </mat-expansion-panel-header>
       <mat-nav-list>
         <mat-list-item [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children"
