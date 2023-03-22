@@ -10,4 +10,8 @@
     flex-direction: column;
     width: 300px;
     padding: 3rem;
+
+    mat-form-field {
+        padding-bottom: 1rem;
+    }
 }
