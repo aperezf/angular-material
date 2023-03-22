@@ -13,24 +13,32 @@ import { environment } from '../environments/environment.development';
 import { ThemeModule } from './theme/theme.module';
 import { EffectsArray } from './store/effects/index';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    // Angular
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    ThemeModule,
     HttpClientModule,
+    // Material
+    MaterialModule,
+    // NgRX
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot(EffectsArray)
+    EffectsModule.forRoot(EffectsArray),
+    // Project
+    AppRoutingModule,
+    ThemeModule,
+    AuthModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

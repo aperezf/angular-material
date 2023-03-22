@@ -1,0 +1,9 @@
+<app-navbar></app-navbar>
+<mat-sidenav-container style="height: calc(100% - 64px)">
+  <mat-sidenav mode="side" fixedTopGap="56" [opened]="opened$ | async">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <h1>Hola mundo</h1>
+  </mat-sidenav-content>
+</mat-sidenav-container>

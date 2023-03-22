@@ -13,23 +13,7 @@ import { MenuActions } from './store/actions';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  themeName$: Observable<string>;
-
-  opened$: Observable<boolean>;
 
 
-constructor(
-  private store: Store<AppState>,
-  private themeSelectorService: ThemeSelectorService
-) {
-  this.store.dispatch(MenuActions.loadMenu());
-  this.themeName$ = this.store.select(themeSelector);
-  this.opened$ = this.store.select(menuToggleSelector);
-}
 
-changeTheme(theme: any): void {
-  this.themeSelectorService.changeTheme(theme);
-}
-
-toggleMenu(): void {}
 }
