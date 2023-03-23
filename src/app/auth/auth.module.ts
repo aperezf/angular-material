@@ -5,6 +5,8 @@ import { SigninComponent } from './components/signin/signin.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { authReducers } from './store/auth.reducer';
 
 
 
@@ -17,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    StoreModule.forFeature('auth', authReducers),
     MaterialModule
   ]
 })
